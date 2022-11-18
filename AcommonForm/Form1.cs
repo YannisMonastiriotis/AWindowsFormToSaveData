@@ -87,5 +87,22 @@ namespace AcommonForm
             this.ScrollControlIntoView(tabControl1);
            
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.process1.StartInfo.FileName = textBox1.Text.Trim();
+            this.process1.Start();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+
+            if(fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = fileDialog.FileName;
+            }
+        }
     }
 }

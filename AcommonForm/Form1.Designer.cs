@@ -50,6 +50,8 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.startClock = new System.Windows.Forms.Button();
             this.stopClock = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.process1 = new System.Diagnostics.Process();
             this.tabControl1.SuspendLayout();
             this.Details.SuspendLayout();
             this.Clock.SuspendLayout();
@@ -85,9 +87,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(141, 527);
+            this.textBox1.Location = new System.Drawing.Point(141, 536);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(751, 26);
             this.textBox1.TabIndex = 4;
             // 
@@ -181,13 +184,14 @@
             this.button4.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(50, 514);
+            this.button4.Location = new System.Drawing.Point(50, 498);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(85, 51);
             this.button4.TabIndex = 12;
             this.button4.Text = "Browse";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // timer1
             // 
@@ -284,6 +288,27 @@
             this.stopClock.UseVisualStyleBackColor = true;
             this.stopClock.Click += new System.EventHandler(this.stopClock_Click);
             // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("OCR A Extended", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(50, 553);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(85, 42);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "Run";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // process1
+            // 
+            this.process1.StartInfo.Domain = "";
+            this.process1.StartInfo.LoadUserProfile = false;
+            this.process1.StartInfo.Password = null;
+            this.process1.StartInfo.StandardErrorEncoding = null;
+            this.process1.StartInfo.StandardOutputEncoding = null;
+            this.process1.StartInfo.UserName = "";
+            this.process1.SynchronizingObject = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -293,6 +318,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1203, 631);
             this.ControlBox = false;
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.TimeTxt);
             this.Controls.Add(this.button4);
@@ -343,6 +369,8 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Button stopClock;
         private System.Windows.Forms.Button startClock;
+        private System.Windows.Forms.Button button5;
+        private System.Diagnostics.Process process1;
     }
 }
 
