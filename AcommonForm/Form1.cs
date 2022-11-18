@@ -19,7 +19,73 @@ namespace AcommonForm
 
         private void button3_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show("Are you sure you want to exit the app?", "Warning", MessageBoxButtons.YesNo);
+            
+            if(result == DialogResult.Yes)
+            this.Close();
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+            
+            this.AutoScaleMode = AutoScaleMode.Font;
+
+        }
+
+        private void transparentBackgroundTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.TimeTxt.Text = DateTime.Now.ToString();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            this.clockTXT.Text = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString() + ":" + DateTime.Now.Second.ToString();
+        }
+        public class TransparentBackgroundTextBox : TextBox
+        {
+            public TransparentBackgroundTextBox()
+            {
+
+                SetStyle(ControlStyles.SupportsTransparentBackColor |
+                         ControlStyles.OptimizedDoubleBuffer |
+                         ControlStyles.AllPaintingInWmPaint |
+                         ControlStyles.ResizeRedraw |
+                         ControlStyles.UserPaint, true);
+                BackColor = Color.Transparent;
+                ForeColor = Color.MediumTurquoise;
+                BorderStyle = BorderStyle.None;
+            }
+
+            public sealed override Color BackColor
+            {
+                get => base.BackColor;
+                set => base.BackColor = value;
+            }
+        }
+
+        private void startClock_Click(object sender, EventArgs e)
+        {
+            timer2.Enabled = true;
+        }
+
+        private void stopClock_Click(object sender, EventArgs e)
+        {
+           
+
+            timer2.Enabled = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.ScrollControlIntoView(tabControl1);
+           
         }
     }
 }
